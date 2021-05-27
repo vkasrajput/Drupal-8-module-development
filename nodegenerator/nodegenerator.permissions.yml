@@ -1,0 +1,11 @@
+view nodegenerator:
+  title: 'view nodegenerator Form'
+  description: 'View and submit the RSVP form.'
+access rsvplist report:
+  title: 'Access List of RSVPs'
+  descripton: 'view the report listing all nodegenerator submitted.'
+administer nodegenerator:
+  title: 'Administer RSVP Settings'
+  description: 'Access the nodegenerator administrative settings page.'
+  restrict access: true
+  

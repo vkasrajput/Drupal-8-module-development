@@ -1,0 +1,7 @@
+name: nodegenerator
+description: Nodde Generator Form. 
+package: Node Generator
+type: module
+version: 1.0
+core: 8.x
+configure: nodegenerator.admin_settings

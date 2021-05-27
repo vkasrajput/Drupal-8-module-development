@@ -1,0 +1,7 @@
+nodegenerator.form:
+  path: '/nodegenerator'
+  defaults:
+    _form: '\Drupal\nodegenerator\Form\NodegeneratorForm'
+    _title: 'Node Generator Form'
+  requirements:
+     _permission: 'view nodegenerator'
