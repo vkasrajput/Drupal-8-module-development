@@ -1,0 +1,7 @@
+name: dropdown
+description: Dropdown form Form. 
+package: Dropdown Form
+type: module
+version: 1.0
+core: 8.x
+configure: dropdown.admin_settings

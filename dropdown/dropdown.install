@@ -1,0 +1,81 @@
+<?php
+function dropdown_schema(){
+    $schema['dropdown'] =array(
+        'description' => 'store email, timestamp, nid and uid for an Dropdown',
+        'fields' => array(
+            'id' => array(
+                'description' => 'the primary identfier for the record.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'uid' => array(
+                'description' => 'The {users}.uid that added this Dropdown.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+            'nid' => array(
+                'description' => 'the {node} .nid for the Dropdown',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => 0,
+            ),
+            'content' => array(
+                'description' => 'Content type.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            
+            'Titles' => array(
+                'description' => 'Titles Details.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            'Descriptions' => array(
+                'description' => 'Title Description.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            'node' => array(
+                'description' => 'Node address.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+
+            'created' => array(
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+                'description' => 'Timestamp for when dropdown is created.',
+            ),
+        ),
+        'primary key' => array(id),
+        'indexes' => array(
+            'node' => array('nid'),
+            'node_user' => array('nid','uid'),
+        ),
+    );
+    $schema['dropdown_enabled'] =array(
+        'descrption' => 'Tracks whether Dropdown is enabled for a node',
+        'fields' => array(
+            'nid' => array(
+                'description' => 'the {node} .nid that has Dropdown enabled',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' =>0,
+            ),
+        ),
+        'primary key' => array('nid'),
+    );
+    return $schema;
+}
