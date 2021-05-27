@@ -1,0 +1,66 @@
+<?php
+function resume_schema(){
+    $schema['resume'] =array(
+        'description' => 'store Name, timestamp, nid and uid for resume',
+        'fields' => array(
+            'id' => array(
+                'description' => 'the primary identfier for the record.',
+                'type' => 'serial',
+                'unsigned' => TRUE,
+                'not null' => TRUE,
+            ),
+            'uid' => array(
+                'description' => 'The {users}.uid that added this resume.',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+            ),
+            'nid' => array(
+                'description' => 'the {node} .nid for the resume',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => 0,
+            ),
+            
+            'Name' => array(
+                'description' => 'User\'s Name.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            'Rating' => array(
+                'description' => 'User\'s Rating.',
+                'type' => 'varchar',
+                'length' => 64,
+                'not null' => FALSE,
+                'default' => '',
+            ),
+            'created' => array(
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' => 0,
+                'description' => 'Timestamp for when resume is created.',
+            ),
+        ),
+        'primary key' => array(id),
+        'indexes' => array(
+            'node' => array('nid'),
+            'node_user' => array('nid','uid'),
+        ),
+    );
+    $schema['resume_enabled'] =array(
+        'descrption' => 'Tracks whether resume is enabled for a node',
+        'fields' => array(
+            'nid' => array(
+                'description' => 'the {node} .nid that has resume enabled',
+                'type' => 'int',
+                'not null' => TRUE,
+                'default' =>0,
+            ),
+        ),
+        'primary key' => array('nid'),
+    );
+    return $schema;
+}

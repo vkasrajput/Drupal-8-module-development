@@ -1,0 +1,5 @@
+name: Resume
+description: A Resume form fro customer feedback.
+core: 8.x
+package: Custom
+type: module
