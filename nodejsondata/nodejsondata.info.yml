@@ -1,0 +1,6 @@
+name: Node Json Data
+type: module
+description: "Node Json Data Api Key Configuration Form"
+package: NodeJson
+version: 1.0
+core: '8.x'
